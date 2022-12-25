@@ -189,6 +189,8 @@ a {
     left: 0;
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6) inset;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6) inset;
   }
   .header .container .nav.ul-active {
     -webkit-transform: scaleX(1);
@@ -197,10 +199,44 @@ a {
   .header .container .nav li {
     width: 100%;
     border-radius: 7px;
+    margin-bottom: 20px;
+    padding: 15px;
+    text-align: center;
+  }
+  .header .container .nav li a {
+    width: 100%;
+    text-align: center;
   }
   .header .container .nav li:hover {
     background-color: var(--dark-blue);
   }
+}
+.header .container .nav .other ul {
+  position: absolute;
+  list-style: none;
+  background: var(--blue-col);
+  text-align: center;
+  padding: 20px;
+  top: 40px;
+  border-radius: 10px;
+  width: 200px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.header .container .nav .other ul.u-a {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.header .container .nav .other ul li::before {
+  display: none;
+}
+.header .container .nav .other:hover ul {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 .header .container .nav li {
   height: 100%;
@@ -657,21 +693,39 @@ a {
 .info .container {
   padding-bottom: 20px;
 }
+.info .container .content-cont {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  direction: rtl;
+  gap: 20px;
+}
+.info .container .cont {
+  border-radius: 20px;
+  background: var(--blue-col);
+  padding: 15px;
+  background: var(--white);
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+}
 .info .container .cont h3 {
   color: var(--dark-blue);
-  font-size: 22px;
+  font-size: 18px;
   text-align: right;
+  width: 100%;
 }
 .info .container .cont ul {
   direction: rtl;
-  list-style: circle;
 }
 .info .container .cont ul li {
   font-size: 18px;
+  list-style-image: url(../images/check-solid.svg);
   font-weight: 400;
 }
 .info .container .cont ul li::marker {
   color: var(--blue-col);
+  fill: var(--blue-col);
+  font-size: 24px;
 }
 .info .container .cont ul li h4 {
   display: inline;
@@ -679,7 +733,7 @@ a {
 }
 .info .container .cont p {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 400;
   text-align: right;
 }
 

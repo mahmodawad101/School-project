@@ -54,3 +54,9 @@ let icon = document.querySelector(".ic i");
 icon.addEventListener('click',function(){
   navList.classList.toggle("ul-active")
 })
+
+let other = document.querySelector(".other ul");
+let oth = document.querySelector(".other");
+oth.addEventListener('click',function(){
+  other.classList.toggle('u-a')
+})

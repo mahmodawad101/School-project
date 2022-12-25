@@ -148,14 +148,52 @@ a {
         backdrop-filter: blur(10px);
         left: 0;
         transform: scaleX(0);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.6) inset;
         &.ul-active{
           transform: scaleX(1);
         }
         li{
           width: 100%;
           border-radius: 7px;
+          margin-bottom: 20px;
+          // height: 100px;
+          padding: 15px;
+          text-align: center;
+          a{
+            width: 100%;
+            text-align: center;
+          }
           &:hover{
             background-color: var(--dark-blue);
+          }
+        }
+      }
+      .other{
+        ul{
+          position: absolute;
+          list-style: none;
+          background: var(--blue-col);
+          text-align: center;
+          padding: 20px;
+          top: 40px;
+          border-radius: 10px;
+          width: 200px;
+          // display: none;
+          transform: scale(0);
+          transition: 0.3s;
+          &.u-a{
+            transform: scale(1);
+          }
+          li{
+            &::before{
+              display: none;
+            }
+          }
+        }
+        &:hover{
+           ul{
+            transform: scale(1);
+            transition: 0.3s;
           }
         }
       }
@@ -547,21 +585,38 @@ a {
   background: var(--sec-gra);
   .container{
     padding-bottom: 20px;
+    .content-cont{
+      // width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+      direction: rtl;
+      gap: 20px;
+    }
     .cont{
+      border-radius: 20px;
+      background: var(--blue-col);
+      padding: 15px;
+      background: var(--white);
+      box-shadow:0 3px 6px rgba(0, 0, 0, 0.6);     
       h3{
         color: var(--dark-blue);
-        font-size: 22px;
+        font-size: 18px;
         text-align: right;
+        // display: inline-block;
+        width: 100%;
 
       }
       ul{
         direction: rtl;
-        list-style:circle;
+        // list-style:circle;
         li{
           font-size: 18px;
+          list-style-image: url(../images/check-solid.svg);
           font-weight: 400;
           &::marker{
             color: var(--blue-col);
+            fill: var(--blue-col);
+            font-size: 24px;
           }
           h4{
             display: inline;
@@ -571,7 +626,7 @@ a {
       }
       p{
         font-size: 18px;
-        font-weight: bold;
+        font-weight: 400;
         // max-width: 500px;
         text-align: right;
       }
