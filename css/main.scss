@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;700&display=swap");
-@import './variables.scss';
+@import "./variables.scss";
 :root {
   --blue-col: #0cb1c7;
   --yellow-col: #ffc400;
   --white: #fff;
   --head-gra: linear-gradient(to right, #136a8a, #267871);
-  --dark-col:#0E3658;
-  --dark-blue:#165081;
-  --sec-gra:linear-gradient(to right, #ece9e6, #ffffff);
+  --dark-col: #0e3658;
+  --dark-blue: #165081;
+  --sec-gra: linear-gradient(to right, #ece9e6, #ffffff);
 }
 ::selection {
   background-color: var(--blue-col);
@@ -17,34 +17,34 @@
   height: 500px;
   border-radius: 10px;
   margin-bottom: 100px;
-  img{
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
   .swiper-button-next,
-  .swiper-button-prev{
+  .swiper-button-prev {
     color: var(--white);
   }
 }
-.wi:nth-child(2){
-  @include mobile{
+.wi:nth-child(2) {
+  @include mobile {
     margin-bottom: 100px;
   }
 }
 html {
   scroll-behavior: smooth;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 15px;
   background-color: var(--blue-col);
   // border-radius:50px ;
 }
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   // border-radius:50px ;
-  background-color: #EEE;
+  background-color: #eee;
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   // border-radius:50px ;
   background-color: var(--blue-col);
   // background-color: #222;
@@ -54,10 +54,10 @@ body {
   padding: 0;
   font-family: "Cairo", sans-serif;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url(../images/bg.jpg);
-  background-size:cover;
+  background-size: cover;
   background-attachment: fixed;
-  @include mobile{
-    background-size:cover;
+  @include mobile {
+    background-size: cover;
   }
 }
 *,
@@ -73,16 +73,16 @@ a {
 .container {
   width: 1000px;
   margin: 0 auto;
-  @include mobile{
+  @include mobile {
     width: 300px !important;
   }
 }
 
-.header.scroll{
+.header.scroll {
   background: var(--head-gra);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
   transition: 0.7s;
-  .container{
+  .container {
     border: none;
     transition: 0.3s;
   }
@@ -92,14 +92,14 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   height: 70px;
   // background: var(--head-gra);
   z-index: 999;
   display: flex;
   align-items: center;
   // box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-  @include mobile{
+  @include mobile {
     width: 100% !important;
   }
   .container {
@@ -109,13 +109,13 @@ a {
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid var(--white);
-    .ic{
+    .ic {
       display: none;
     }
-    @include mobile{
-      .ic{
+    @include mobile {
+      .ic {
         display: block;
-        i{
+        i {
           color: white;
           cursor: pointer;
         }
@@ -126,7 +126,7 @@ a {
       h3 {
         font-weight: 700;
         color: var(--white);
-        a{
+        a {
           color: var(--white);
         }
       }
@@ -137,7 +137,11 @@ a {
       display: flex;
       justify-content: center;
       align-items: center;
-      @include mobile{
+      // overflow: scroll;
+      .mob-ul {
+        display: none;
+      }
+      @include mobile {
         position: absolute;
         flex-direction: column;
         top: calc(100% - 14px);
@@ -149,49 +153,78 @@ a {
         left: 0;
         transform: scaleX(0);
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.6) inset;
-        &.ul-active{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+        gap: 5px;
+        &.ul-active {
           transform: scaleX(1);
         }
-        li{
+        li {
           width: 100%;
           border-radius: 7px;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
           // height: 100px;
-          padding: 15px;
+          padding: 10px;
           text-align: center;
-          a{
+          background-color: var(--dark-blue);
+          text-align: center;
+          &:hover{
+            background-color: var(--dark-col);
+          }
+          &.mob-ul {
+            display: block;
+          }
+          a {
             width: 100%;
             text-align: center;
           }
-          &:hover{
+          &:hover {
             background-color: var(--dark-blue);
           }
         }
       }
-      .other{
-        ul{
+      .other {
+        cursor: pointer;
+        @include mobile {
+          display: none;
+        }
+        ul {
           position: absolute;
           list-style: none;
           background: var(--blue-col);
           text-align: center;
-          padding: 20px;
+          padding: 10px ;
           top: 40px;
-          border-radius: 10px;
+          border-radius: 2px;
           width: 200px;
           // display: none;
           transform: scale(0);
           transition: 0.3s;
-          &.u-a{
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+            rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+          @include mobile {
+            background: none;
+          }
+          &.u-a {
             transform: scale(1);
           }
-          li{
-            &::before{
+          li {
+            width: 100%;
+            background-color: var(--dark-blue);
+            margin-bottom: 5px;
+            padding: 10px;
+            transition: 0.3s;
+            &:hover{
+              background-color: var(--dark-col);
+            }
+            &::before {
               display: none;
             }
           }
         }
-        &:hover{
-           ul{
+        &:hover {
+          ul {
             transform: scale(1);
             transition: 0.3s;
           }
@@ -211,7 +244,7 @@ a {
           top: calc(100% + 15px);
           transform: scaleX(0);
           transition: 0.3s;
-          @include mobile{
+          @include mobile {
             display: none;
           }
         }
@@ -251,7 +284,7 @@ a {
   .land-title {
     font-size: 36px;
     font-weight: bold;
-    @include mobile{
+    @include mobile {
       font-size: 25px;
     }
 
@@ -329,7 +362,7 @@ a {
   background: linear-gradient(to right, #ece9e6, #ffffff);
   .container {
     margin-top: 50px;
-    @include mobile{
+    @include mobile {
       width: 300px;
     }
     .goals-boxes {
@@ -345,8 +378,8 @@ a {
       direction: rtl;
       position: relative;
       overflow-x: hidden;
-      @include mobile{
-      grid-template-columns: 300px;
+      @include mobile {
+        grid-template-columns: 300px;
       }
       &::before {
         content: "";
@@ -368,7 +401,7 @@ a {
         max-height: 200px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.4) inset,
           0 0 6px rgba(0, 0, 0, 0.4);
-          position: relative;
+        position: relative;
         h4 {
           margin: 0;
           font-size: 22px;
@@ -379,48 +412,44 @@ a {
           color: var(--white);
           display: inline-block;
           font-weight: 700;
-          @include mobile{
+          @include mobile {
             font-size: 14px;
           }
         }
       }
-      .box:nth-child(even){
-        
-          &::before{
-            content: "";
-            position: absolute;
-            top: 80%;
-            right: -25px;
-            width: 25px;
-            height: 3px;
-            background-color: var(--blue-col);
-            @include mobile{
-              display: none;
-            }
-          
+      .box:nth-child(even) {
+        &::before {
+          content: "";
+          position: absolute;
+          top: 80%;
+          right: -25px;
+          width: 25px;
+          height: 3px;
+          background-color: var(--blue-col);
+          @include mobile {
+            display: none;
+          }
         }
       }
-      .box:nth-child(odd){
-        
-          &::before{
-            content: "";
-            position: absolute;
-            top: 20%;
-            left: -25px;
-            width: 25px;
-            height: 3px;
-            background-color: var(--blue-col);
-            @include mobile{
-              display: none;
-            }
-          
+      .box:nth-child(odd) {
+        &::before {
+          content: "";
+          position: absolute;
+          top: 20%;
+          left: -25px;
+          width: 25px;
+          height: 3px;
+          background-color: var(--blue-col);
+          @include mobile {
+            display: none;
+          }
         }
       }
-      .box:nth-child(1)::after{
+      .box:nth-child(1)::after {
         content: "1";
         position: absolute;
-        top:calc(100% - 45px);
-        left:20px;
+        top: calc(100% - 45px);
+        left: 20px;
         color: var(--blue-col);
         border-radius: 50%;
         background-color: var(--yellow-col);
@@ -431,13 +460,12 @@ a {
         align-items: center;
         font-size: 18px;
         font-weight: 700;
-        
       }
-      .box:nth-child(2)::after{
+      .box:nth-child(2)::after {
         content: "2";
         position: absolute;
-        top:calc(100% - 45px);
-        left:20px;
+        top: calc(100% - 45px);
+        left: 20px;
         color: var(--blue-col);
         border-radius: 50%;
         background-color: var(--yellow-col);
@@ -449,11 +477,11 @@ a {
         font-size: 18px;
         font-weight: 700;
       }
-      .box:nth-child(3)::after{
+      .box:nth-child(3)::after {
         content: "3";
         position: absolute;
-        top:calc(100% - 45px);
-        left:20px;
+        top: calc(100% - 45px);
+        left: 20px;
         color: var(--blue-col);
         border-radius: 50%;
         background-color: var(--yellow-col);
@@ -465,11 +493,11 @@ a {
         font-size: 18px;
         font-weight: 700;
       }
-      .box:nth-child(4)::after{
+      .box:nth-child(4)::after {
         content: "4";
         position: absolute;
-        top:calc(100% - 45px);
-        left:20px;
+        top: calc(100% - 45px);
+        left: 20px;
         color: var(--blue-col);
         border-radius: 50%;
         background-color: var(--yellow-col);
@@ -481,11 +509,11 @@ a {
         font-size: 18px;
         font-weight: 700;
       }
-      .box:nth-child(5)::after{
+      .box:nth-child(5)::after {
         content: "5";
         position: absolute;
-        top:calc(100% - 45px);
-        left:20px;
+        top: calc(100% - 45px);
+        left: 20px;
         color: var(--blue-col);
         border-radius: 50%;
         background-color: var(--yellow-col);
@@ -497,11 +525,11 @@ a {
         font-size: 18px;
         font-weight: 700;
       }
-      .box:nth-child(6)::after{
+      .box:nth-child(6)::after {
         content: "6";
         position: absolute;
-        top:calc(100% - 45px);
-        left:20px;
+        top: calc(100% - 45px);
+        left: 20px;
         color: var(--blue-col);
         border-radius: 50%;
         background-color: var(--yellow-col);
@@ -513,7 +541,7 @@ a {
         font-size: 18px;
         font-weight: 700;
       }
-      .box:last-child{
+      .box:last-child {
         margin-bottom: 50px;
       }
     }
@@ -528,7 +556,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  @include mobile{
+  @include mobile {
     font-size: 25px;
   }
   h1 {
@@ -541,24 +569,24 @@ a {
 
 // slug
 // start events
-.events{
+.events {
   background: var(--sec-gra);
   // height: 80vh;
-  .container{
-    @include mobile{
+  .container {
+    @include mobile {
       width: 300px;
     }
-    .even-boxes{
-      display:grid;
+    .even-boxes {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
       justify-content: center;
       align-content: center;
       text-align: right;
       gap: 20px;
-      @include mobile{
+      @include mobile {
         grid-template-columns: repeat(1, 300px);
       }
-      .box{
+      .box {
         background: var(--head-gra);
         color: var(--white);
         border-radius: 7px;
@@ -566,11 +594,11 @@ a {
         position: relative;
         // transform: skewX(10deg) ;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.4) inset,
-        0 0 6px rgba(0, 0, 0, 0.4);
-        @include mobile{
+          0 0 6px rgba(0, 0, 0, 0.4);
+        @include mobile {
           transform: skew(0);
         }
-        p{
+        p {
           color: var(--white);
           font-size: 22px;
         }
@@ -581,50 +609,53 @@ a {
 // end events
 // start info
 
-.info{
+.info {
   background: var(--sec-gra);
-  .container{
+  .container {
     padding-bottom: 20px;
-    .content-cont{
+    .content-cont {
       // width: 100%;
       display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       direction: rtl;
       gap: 20px;
     }
-    .cont{
+    .cont {
       border-radius: 20px;
       background: var(--blue-col);
       padding: 15px;
       background: var(--white);
-      box-shadow:0 3px 6px rgba(0, 0, 0, 0.6);     
-      h3{
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      &:hover{
+        transform: translateY(-10px);
+        transition: 0.5s;
+      }
+      h3 {
         color: var(--dark-blue);
         font-size: 18px;
         text-align: right;
         // display: inline-block;
         width: 100%;
-
       }
-      ul{
+      ul {
         direction: rtl;
         // list-style:circle;
-        li{
+        li {
           font-size: 18px;
           list-style-image: url(../images/check-solid.svg);
           font-weight: 400;
-          &::marker{
+          &::marker {
             color: var(--blue-col);
             fill: var(--blue-col);
             font-size: 24px;
           }
-          h4{
+          h4 {
             display: inline;
             color: var(--blue-col);
           }
         }
       }
-      p{
+      p {
         font-size: 18px;
         font-weight: 400;
         // max-width: 500px;
@@ -635,21 +666,21 @@ a {
 }
 
 //end info
-.ev{
+.ev {
   background: var(--sec-gra);
   height: 250vh;
-  @include mobile{
-    height:340vh;
+  @include mobile {
+    height: 340vh;
   }
-  .container{
-    .ev-head{
+  .container {
+    .ev-head {
       color: var(--dark-blue);
       text-align: center;
     }
   }
 }
 // start footer
-.footer{
+.footer {
   width: 100%;
   background-color: #222;
   // color: var(--dark-blue);
@@ -657,25 +688,25 @@ a {
   position: relative;
   bottom: 0;
   left: 0;
-.container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  .fo{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    h2{
-      margin: 0;
-      text-align: center;
-      color: var(--white);
-      @include mobile{
-        font-size: 16px;
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .fo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      h2 {
+        margin: 0;
+        text-align: center;
+        color: var(--white);
+        @include mobile {
+          font-size: 16px;
+        }
       }
     }
   }
-}
 }
 // end footer
