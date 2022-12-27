@@ -173,9 +173,13 @@ a {
           }
           &.mob-ul {
             display: block;
+            a{
+              height: 100%;
+            }
           }
           a {
             width: 100%;
+            height: 100%;
             text-align: center;
           }
           &:hover {
@@ -626,6 +630,15 @@ a {
       padding: 15px;
       background: var(--white);
       box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      &:last-child{
+        grid-column: 1 /3;
+        grid-row: 3/2;
+        @include mobile{
+          grid-column: auto;
+          grid-row: auto;
+
+        }
+      }
       &:hover{
         transform: translateY(-10px);
         transition: 0.5s;
